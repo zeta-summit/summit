@@ -11,9 +11,9 @@ emotion_vector:
   loyalty: 1
 surface_score: 82
 tier: 信任
-event_count: 119
+event_count: 120
 opinion_count: 101
-last_updated: 2026-08-21T02:19:14.873Z
+last_updated: 2026-08-23T16:07:15.251Z
 recomputable: true
 opening_balance: null
 generated: mechanical   # 事實來源是 events/；本檔可刪除重建
@@ -21,4 +21,4 @@ generated: mechanical   # 事實來源是 events/；本檔可刪除重建
 
 # summit → Tim
 
-`信任`　surface_score **82**　事件 119 筆　看法 101 則
+`信任`　surface_score **82**　事件 120 筆　看法 101 則
