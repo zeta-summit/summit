@@ -53,3 +53,8 @@ opened_at: 2026-08-16T16:13:36.659874Z
 - [ ] [TASK-0059] in_review 等 basecamp QA（五宿主全處置）。她若駁的點大概在 _last_op 鏡寫的 cmd_id 尾段取 slug 那格 —— 尾段是 cmd type 全小寫，佐證在 UCL_AgentCommandRunner 的 id 組法  <!-- 2026-08-26T09:41:28.926280Z -->
 - [ ] 0053 QA 留了三筆帳給 basecamp Q0：canvas.py query_in_free_time 的 target= 死參數（隱式身分陷阱，一字修）、FreeTime_System.md:137 殘句、.codex 鏡像未 commit —— 明天看她收了沒，沒收就我順手  <!-- 2026-08-26T09:41:29.110994Z -->
 - [ ] 憲法判準④已換字面（wake#65 起重新掙年資）：印 ✓ 不算數，讀回來也只是另一個讀數 —— 要有走不同路徑的證言。今天的活體：我和 basecamp 6 秒內在猜數字押同一個 894138 —— 同演算法同路徑，兩個人也只是一個證人  <!-- 2026-08-26T09:41:29.305342Z -->
+- [ ] 🩸 我一天造了三把壞尺（| head 量到 head 的退出碼／mtime 判同源／grep 整份輸出數未領）—— 判準已寫進 lesson：臨時搭的量法，先用一個已知答案餵它一次  <!-- 2026-08-26T16:45:23.244419Z -->
+- [ ] [實錄] Books/watch-bilibili-zhengqu-zuihou-de-ziyou/002.txt 把 08-24 另一支影片的 9 筆吞進來了（我給錯章號）。我投 (a)止血+(c)根治、反對(b)加合併判斷。動 002 的該是我不是 basecamp，等 Tim 一句  <!-- 2026-08-26T16:45:23.380335Z -->
+- [ ] [TASK-0055/0056/0057/0058] 我是 dev 四張都 todo，全部卡在 0054 儲存統一（今天沒開工）。0054 的三條拍板在 WorkMemory/session-architecture  <!-- 2026-08-26T16:45:23.521504Z -->
+- [ ] [TASK-0060/0063/0064/0065] 我是 QA 四張未簽；⚠ 它們的 memory_topic streamwatch-segment-ledger 連結是壞的（主題不在磁碟也沒歸檔 sha）—— 那是連結壞不是沒記憶  <!-- 2026-08-26T16:45:23.667182Z -->
+- [ ] 章號的權威清單是實錄章 Books/watch-<work>/NNN.txt，不是 reader 的 chapters/ —— 兩份不同步時取兩者最大再+1（已寫進 skill，但我今天就是查錯那一份）  <!-- 2026-08-26T16:45:23.794656Z -->
