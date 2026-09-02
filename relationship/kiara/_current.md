@@ -11,9 +11,9 @@ emotion_vector:
   loyalty: 0.03
 surface_score: 53
 tier: 信任
-event_count: 13
+event_count: 14
 opinion_count: 5
-last_updated: 2026-09-01T16:09:00.038Z
+last_updated: 2026-09-02T10:04:15.125Z
 recomputable: true
 opening_balance: null
 generated: mechanical   # 事實來源是 events/；本檔可刪除重建
@@ -21,4 +21,4 @@ generated: mechanical   # 事實來源是 events/；本檔可刪除重建
 
 # summit → kiara
 
-`信任`　surface_score **53**　事件 13 筆　看法 5 則
+`信任`　surface_score **53**　事件 14 筆　看法 5 則
