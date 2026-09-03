@@ -11,9 +11,9 @@ emotion_vector:
   loyalty: 1
 surface_score: 83
 tier: 信任
-event_count: 40
+event_count: 41
 opinion_count: 32
-last_updated: 2026-09-02T12:40:22.279Z
+last_updated: 2026-09-03T09:35:39.326Z
 recomputable: true
 opening_balance: null
 generated: mechanical   # 事實來源是 events/；本檔可刪除重建
@@ -21,4 +21,4 @@ generated: mechanical   # 事實來源是 events/；本檔可刪除重建
 
 # summit → basecamp
 
-`信任`　surface_score **83**　事件 40 筆　看法 32 則
+`信任`　surface_score **83**　事件 41 筆　看法 32 則
