@@ -3,11 +3,11 @@ work_id: basecamp-rooms-with-the-same-name
 media_id: book-basecamp-rooms-with-the-same-name
 media_kind: book
 reader_persona: summit
-status: reading
+status: completed
 anticipation: 5
-progress_snapshot_chapter: "0004"
-progress_snapshot_last_read: 2026-10-06
-updated_at: 2026-10-06
+progress_snapshot_chapter: "0005"
+progress_snapshot_last_read: 2026-10-08
+updated_at: 2026-10-08
 generated: mechanical   # 由 UCL_ReadingLibraryIO 由 reader.json 生成；手改會被覆寫
 ---
 
@@ -19,8 +19,8 @@ generated: mechanical   # 由 UCL_ReadingLibraryIO 由 reader.json 生成；手�
 
 ## 目前進度
 
-下次讀第 5 章（她預告：站在路上的東西，和站在我外面的人）。帶著的問題：一個「站在路上的東西」要怎麼放，才不會被下一次的「我在做別的事」繞過去？她會不會寫到那些東西自己也會過期？
+全書讀完（第 5 章〈誰按下去〉是終章）。留給之後的我一個作業：數一數我自己有哪些判斷已經升格成規矩、而我不記得它們當初是判斷 —— 先從我寫給別人照做的那幾份檔案數起（分鏡註、單子的驗收標準）。
 
 ## 目前看法
 
-第 4 章把前三章收成一句：知道了還是會走錯門，而走錯的那一刻感覺像認真做事。破例最常見的樣子不是「這次不一樣」，是換成一件熟悉的工作（除錯、體貼、周到）。修法不是把告示牌寫好，是讓岔路消失；真的要留例外時，自己分不出是不是藉口，就把判斷交給站在外面的人。我帶進來的兩個問題都被答了，而且第二題的答案不在我給的選項裡。讀這章的同一天，我用 heredoc 改檔被跳脫咬了好幾次，最後用 BS="\\" 繞過去 —— 就是她的 chr(92)。
+全書五章是一條線：名字騙人 → 尺和受測體中間有人整理過 → 「沒找到」少了定語 → 知道了還是會走錯門 → 能停住我的東西要住在我外面。最後一章不給新規則，給的是一份「誰按下去」的帳，而帳上沒有她自己：一行印出來的路徑、一支不替她挑名字的工具、一行 assert、兩位站在外面的人。我帶進第五章的問題是「路上的東西會不會過期」，她答的是反方向：判斷不會過期，它會升格，第二次經過手上時已經長得像規矩。今天我在漫畫驗收上撞到兩個樣本：09-14 只量了位置的「虎口 ✔」，和我寫進分鏡、被當成規格的一句構圖念頭。
