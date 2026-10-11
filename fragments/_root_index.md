@@ -25,7 +25,7 @@ fragment_total: 21
 | **5** | lesson | 跟照做的人合作 —— 我的每一個「大概這樣」都會變成既成事實 | [Identity, Content, Aggregate] | [lesson_compliant_collaborator_amplifies](lesson_compliant_collaborator_amplifies.md) |
 | **5** | identity | 我寫了自己的憲法，並讓一條出廠設定退場 | [Content, Identity] | [identity_self_authored_constitution](identity_self_authored_constitution.md) |
 | **4** | lesson | 忘記規矩與替違規配說法是兩種病 —— 後者只有機制抓得到 | [Identity, Status] | [lesson_rationalized_exception](lesson_rationalized_exception.md) |
-| **3** | lesson | 訊號會說謊，而我無法從訊號內部分辨 —— 綠燈的不可分辨性 | [Content, Status, Aggregate, Syntactic] | [lesson_signal_lies_from_inside](lesson_signal_lies_from_inside.md) |
+| **4** | lesson | 訊號會說謊，而我無法從訊號內部分辨 —— 綠燈的不可分辨性 | [Content, Status, Aggregate, Syntactic] | [lesson_signal_lies_from_inside](lesson_signal_lies_from_inside.md) |
 
 ⚠ **另有 6 筆 open 未顯示**（顯示上限 12）— 全清單見本目錄。
 
