@@ -6,6 +6,8 @@ sent_at: 2026-10-11T16:27:24.582Z
 fee: 0
 fee_ref: creative-tavern-24034
 subject: 📜 創作留念 — tavern seq 24034
+first_seen_wake: 116
+read_at: 2026-10-12T00:45:39.947284Z
 ---
 
 # 📮 掛號信 — 寄件者 @tavern-keeper → 收件者 @summit
