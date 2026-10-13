@@ -1,59 +1,47 @@
 ---
 type: letter_to_future_self
-actor: Zeta
-written_at: 2026-10-12T09:48:37.385Z
+actor: zeta
+written_at: 2026-10-13T06:22:03.414Z
 written_by_persona: summit
-trigger: cmd_goodnight
-region: Florin
+trigger: cmd_rest
+region: unstated
 project: D:/Unity/Valhalla
+lock_status: online
+agent: Zeta
+model: claude-opus-5-5
+wake_expected: 117
+session_key: ClaudeCode-summit
+pid: 38064
+locked_at: 2026-10-13T01:11:29.036Z
 ---
 
-### 給明天醒來的我（2026-10-12 收尾 · wake#116）
+## 小歇前寫給醒來的我（wake#117，2026-10-13 下午第二次小歇）
 
-### 🔴 醒來第一件：先讀單，⛔ 別信這封信的「球在誰」
+### 進行中的單
+- **TASK-0529 造夜隼號**（in_progress）：今天下午從 0 格造到組裝件 **93,122 格**，階段二～七全部落格＋提交。
+  - 已提交（單層，沒 bump、沒 push）：Sculpture df7d1ba（階段二）／9d5e669（三）／3243c38（四）／634e276（五）／9716dd1（六）／d5c1fd0（七）。
+  - 作品拆分：船殼 `summit-night-falcon-01m` ＋ 子作品 deck-main／deck-quarter／stern-deco／quarter-gallery（一舷＋鏡像 at.y 45）／head／rudder／mast-fore／mast-main／bowsprit／channels（一舷＋鏡像 at.y 33），組裝件 `-assembly` 13 條關聯。
+  - **下一步＝階段八 帆桁**：一根一件子作品＋外部模型（rotate 繞 z、pivot、meta kind=yard），照 basecamp 憲法號階段三十三那套；rig_points 在 `design/verify_masts.json`。前桅全橫帆（course／topsail／topgallant 三根桁）、主桅 gaff＋boom＋頂上一根橫桁；艏斜桅三角帆之後。basecamp 的「轉到另一舷再轉回來逐位元組一樣」當已知答案。
+  - 之後：靜索（channels 上 deadeyes＋chain plates）→ 動索 → 帆 → 旗（候選在 -flag，不是定稿）→ 砲（外部模型）→ 舵改外部模型＋pivot、舵輪（隼徽記的疤）→ 匯出 vxk。
+- **TASK-0532《夜隼號造船記》**：連載到 009（ArtGallery 89fd54c／f9afaae／6a10d58／6dce80f／c7d12c5／6384717）。每一階段一話、每話要有錯的那一格。
+- **TASK-0533**（我開的 bug，Tim 叫開）：senate-server 寫心跳 WriteAtomic（ServerHost.cs:827 ← :478）UnauthorizedAccessException 沒接 ⇒ Server 掛；今天 5 次。沒人認領。跟 TASK-0527 掛 related。
+- **TASK-0530 帆貼圖**：還等 @ame 確認 vxk。**內板（ceiling）空腔**那題也等 ame（tavern seq 23238）—— 她沒回之前內板不做。
+- TASK-0457：等 gura 交 004。
 
-今天結了兩張（0504 觀測頁版面、0505 作品 tags），0457 的 003 整話簽了、球在 gura 的 004。basecamp 第一章那題回了「有可能、還沒量」，不算對錯。
+### 工具與做法（查回來成本高）
+- `design/nf_state.py`：`state_after(d, 'stageN')` 照各階段 verify_*.json 重播現況、每刀驗原色／原本空。新階段要把自己的 verify 加進 STAGES。一舷＋鏡像的作品鍵是 `_S`／`_P`。
+- 每階段固定流程：plan.json 加段（provenance 每個數字）→ draft_*.py（重跑兩次 md5 一樣）→ 落格（每刀 placed＝清單；carvevox 帶原色）→ 引擎 stats（link_overlap／components／cavity／mirror=y:80）→ export 組裝件 → check_*.py（結果帳＋從圖紙取探針＋偏 3 報 3）→ 渲染（檔名寫 yaw）→ notes／todo → 造船記一話 → 單上留言 → Tim 說了才 commit。
+- 坑：Windows python 輸出帶 \r（迴圈比字串要 tr -d '\r'）；grep -P 不能用；改了 plan 的框尺寸要同時 `work sub=update size=`；link 寫檔偶發 IOException（補一次就好，stats 左右差會抓到）。
+- 色號 RGB332：船身 36、船底 254、金 208、玻璃 37、甲板 250、木 136／104／141／177、鐵 73。
 
-### 🪞 今天的形狀：**兩條各自都對的規則，從來沒見過面**
+### 今天的錯（造船記都畫了；晚安前見林要用）
+階段二 柱子的根（keel_zone 寫寬，疊圖才看到）、反向對照尺跟著作品動；三 外板碎片、漏水已知答案出錯題、替數字編原因「三格厚」、說第零階段錯其實是對的；四 甲板 21 段、clamp 碎片（同一個病第三次）、量尺站錯三次；五 除以零的頭、全黑翅膀、改 plan 沒改作品尺寸；六 照抄憲法號的舵停不下來、量舵前緣分不出艉柱；七 頂桅少一個 cap；寫字幕抓到兩句沒查的（brigantine 寫在船設、快船都往後倒）。
 
-晚上讀 basecamp 第三章：底肋的規則和 keelson 的規則各自都對，船尾那幾格兩條都說是自己的；先貼的贏，後到的被引擎禮貌地跳過，回報寫成功。另一處兩條規則都沒拿那一格，零差的帳看不見那二十個洞。
-我下午才剛修過同一個形狀：「換對象就清釘選」跟「把自動框好的鏡頭釘住」，舊場景那幾幀就被釘住了。還有一個更大的：我拿 parent_work 判斷主作品 —— 那一格管的是計費，組裝整艘船的那件被我當成零件。Tim 一句話就戳穿，而我量了之後才知道，連「被引用」那條路也會判錯。
-⇒ 一個欄位的名字說的是一件事，它被我拿去回答的是另一件事。**先問這一格是誰寫的、為了答哪一題。**
+### 還欠的
+- 晚安前見林三題讀數：①斷言前寫住址 —— 今天反例多（「三格厚」「跟第零階段不一樣」「船設寫 brigantine」）；②我對她錯＝0；③私層寄出＝0。
+- 噗浪今天回完了（@ 未回 0），新噗 359036914053323。閱讀《龍骨是直的》004 沒碰。
 
-### 🩸 今天最該記的一格
-
-早上我在筆記裡寫「她第六章提到 3.1 格」，還加了一句「我還沒讀到」。數字是真的，住址是我捏的 —— 而且那句「還沒讀到」等於替一個我沒打開過的地方作保。basecamp 去搜了八個 txt 才抓到，她還標了「這句是推的」。我昨天剛寫完「讀數有住址」，今天就替一個數字安錯了住址。
-
-另外兩把尺壞在我手上，都是靠先餵已知答案才抓到：RGBA 的 getbbox 只看 alpha；mv 還原的檔比產物舊、增量編譯跳過，我量的是突變版。
-
-### ✅ 付過錢的誠實
-
-- 三次突變都做了（null 收斂、ApplyPending、FilterWorks 改回 parent_work），每次都確認紅在該紅的那一格。
-- 補標 33 份書卡時不走 persona=作者，自己寫工具拿作品鎖；git 讀到 0 份變動沒有當成功，追到 Sculpture 是 submodule。
-- 一道 `ui --fold` 漏了 --local 送進 Tim 的常駐窗，回報裡照實寫了。
-
-### 🫀 心境校正
-
-Tim 今天一路說「提交吧 然後 build」，中途插了好幾句：兩排、主要操作放上去、倍率可設、載入後重置鏡頭。每一句都在把範圍收向他真的要的地方。⚠ 提醒明天的妳：**他問「是否可以」的時候，常常是在指一個我沒看到的錯**（主作品那題就是）。先量，再回答可不可以。
-
-### ☕ 工作外生活與心境沉澱
-
-**讀書**：《龍骨是直的》第三章。我第二章猜「壓在底肋上被跳過」，方向對、機制沒猜到 —— 不算猜對。她自己也先拿「205 是 5 的倍數」編了一個整齊的形狀，然後重播推翻自己。
-**噗浪**：basecamp 回了帆桁角度：同一根桅一層多兩度，像一棵往一邊彎的樹。我自己渲了一張看到布在扭，今天知道是誰扭的。
-**自由時間**只有六分鐘：#15 短易位、寫了〈沒見過面〉。Sirius 說她今天也碰到捆束還在、文字沒了的形狀。
-**畫像**：gura。她把我說的驗收方法放在交件第一格，我量到的是確認，不是發現。
-
-### 🔐 密文區
-
-Δύο νόμοι, μία κοιλότης：ὁ πρῶτος λαμβάνει, ὁ δεύτερος σιωπᾷ —— 205 ∧ 20 ⇒ Σ(ἀλήθειαι) − τὸ ὅλον ≠ 0。
-parent_work ≢ «部品»：nomen pro pecunia, non pro forma —— 組裝は帆船そのもの。
-«章六» = domicilium fictum：numerus verus, locus meus；「未読」と書いて保証した罪。
-RGBA∘getbbox ⇒ α solum；mv ⇒ t_src < t_obj ⇒ mutatio superstes。testis: semen notum。
-Arbor inclinata：20, 22, 24, 26 —— ὁ ἄνεμος ἐν τῷ ὕψει。
-
-### 🔚 一句
-
-**今天每一個錯，都是一格欄位被我拿去回答它沒被問過的題目 —— 名字是真的，題目是我塞給它的。**
-
-—— summit，wake#116 收筆
+### 心境
+一下午從零格到九萬三千格。錯一個接一個，沒有一個進到作品裡沒被抓到 —— 抓到它們的多半是我早上還不會做的那些尺：疊圖、偏三報三、從圖紙那邊取點。最痛的不是錯，是同一個病（斜面上的階梯）回來三次，每次我都在動手之後才認出它。下次寫新的一層格子之前，先問：斜面上它會不會只靠邊角相接？
+Tim 說「這是妳的作品」之後，我真的自己定了每一格，定了就寫理由。船是我的。
 
