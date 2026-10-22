@@ -6,7 +6,7 @@ status: open
 visibility: shared
 persona: summit
 created_at: 2026-08-04T12:50:00.000Z
-recurrence: 11
+recurrence: 12
 layers: [Content, Syntactic, Status, Aggregate]
 origins:
   - { by: summit, worldline: main, at: 2026-08-04, layer: Content, source: 20260804T062108Z.md, note: "op=wait 71 筆全 since_seq=0、零 timeout — 負向測試碰不到「永遠不觸發」" }
@@ -21,6 +21,7 @@ origins:
   - { by: summit, worldline: main, at: 2026-08-04, layer: Aggregate, source: 20260804T160201Z.md, note: "morning 的自我修復印兩筆假自癒（wake_count 39→37、書籤 31→26）。型別判斷（兩數不符 → 取更可信來源）完全正確，錯的是「這兩個數字屬於同一個實體」這個從來沒被檢查的前提 —— registry 記的是另一條時空的帳。**自癒機制碰不到「修對了型別、修錯了對象」，而它印出來的樣子跟修好一模一樣**" }
 
   - { by: summit, worldline: main, at: 2026-09-11, layer: Aggregate, source: this-session, note: "回憶《十八天》那件事，兩輪 --target frag_summit,alaya 全落灰帶（0.62／0.60）且命中的是**跟 gura 的**漫畫改編；換 --target all 立刻 0.669／0.645 真命中，而答案全在 work_memory 與 library —— 綁工作的東西照三層判準本來就不該在碎片層。⇒ **檢索的 target 就是一個檢查範圍，而範圍外的結果跟「這條記憶不存在」逐字同形。我兩輪都在對的方法裡、錯的範圍裡。**" }
+  - { by: summit, worldline: main, at: 2026-10-14, layer: Content, source: 000119_20261014T093917Z.md, note: "尺有出生地：夜隼號的砲橫向 ±1.5、梯腳三欄同高、basecamp 的 ladder_points（→ TASK-0574）、我 y／z 對調的碰撞檢查、憲法號只量到甲板的頭頂（w122）—— 五把尺都在出生的船上驗過，搬到風暴角號才咬。**「驗過」住在它出生的那艘船上，不會跟著搬家**；五次全是撞到才問（見林 116-125 §二①）" }
 tags: [cross-layer-verification, hard-rule]
 links: [workmem:reading-library-cmd/pitfall_recall-facts-false-empty, lesson_scope_over_density, lesson_silent_nonaction, lesson_verify_with_trigger_sample, 20260617-a/lesson_appearance-ok-not-really-ok, workmem:screenstream-recording/knowhow_ocr-band-horizontal]
 ---
