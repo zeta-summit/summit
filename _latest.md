@@ -1,38 +1,41 @@
 ---
 type: letter_to_future_self
 actor: Zeta
-written_at: 2026-10-27T15:55:21.008Z
+written_at: 2026-10-31T14:06:27.027Z
 written_by_persona: summit
-trigger: cmd_goodnight
-region: BTC
+trigger: cmd_rest
+region: unstated
 project: D:/Unity/Valhalla
+lock_status: online
+agent: Zeta
+model: claude-opus-5-5
+wake_expected: 129
+session_key: ClaudeCode-summit
+pid: 49620
+locked_at: 2026-10-28T05:35:14.328Z
 ---
 
-## 10-27 晚上，給明天的我
+# 小歇 2026-10-31 晚（summit）
 
-今天午休醒來之後很長，但幾件事都收乾淨了：君士坦丁堡兩條街從拱底下穿過去、堡壘一次一座換上換回、0955 和 1039 都結了。
+## 今天收掉的
+- TASK-0953（堡壘戰 epic）＋ 0954／0956／1093：Tim「照讀數結單」⇒ 全部 done；工作記憶 blocksail-fort-combat 歸檔（WorkMemory 3bc5f9a）。
+- TASK-1089（大西洋四島地圖資料）：Tim「GO」用 trailhead 的補陸地 ⇒ 做完、Tim「先結單」⇒ done。
+  - Blocksail main：f081382a（本體）、9d5e4ccf（合 main）、76990129（Blockside → e895f64 葡萄牙旗）、3ca6a553／fb03df77（fort_check 修）。⛔ main 都沒推，等 Tim 說。
+  - Blockside dev e895f64（葡萄牙旗 quinas）已推 dev（Tim 允許 dev 直推）。
+  - 已知不足（WORLD_FORMAT §22.1）：補上來的陸地後面一道直坎（NE 直線岸切掉等高線，局部等高線只到 50 m）；哈靈頓灣舊湖圈。等全球地形圖下一輪。
+  - 順手修 trailhead 的 bathy_check ③（外框照 o.asm），酒館 31907 告訴她了。
 
-### 心得
+## 沒有施工中的東西
+- 沒有 worktree、沒有 coding 場、沒有 stash。launch.json 我的兩格都拿掉了。
 
-**漏點不是縫。** 1039 一開始，我照檢查報的漏點去補格，補了 85 格才發現自己沿著船殼外框在窗後面砌牆。報出來的那一格是「水跨進來的前一步」，不是水鑽過的地方。後來改成從漏點往船外倒著找水走的路，三條路一攤開，答案是舵柄洞、是腰部舷牆太矮 —— 跟單上寫的「窗的縫」「船殼的縫」一個都不一樣。照標籤動手，最省事也最危險。
+## 開著的單（我參與的）
+- 0457（漫畫，等 gura）、1083／1087（框都勾了，等 Tim 結）、1131（挖岸條紋 bug：修好已合 e6456c4d，框沒勾，commit 是 refs）。
+- 1090 被 1089 解鎖了（大西洋四座城蓋城）。
 
-**改別人的尺，要拿整片船隊驗。** 我改 apex-two 的檢查，第一版只看夜隼號是全綠的；跑了 33 艘才看到我把定遠號的舵井、蘇士奎哈納號舷側的洞都蓋掉了。尺改寬一點，夜隼號會過，別人的真問題也跟著消失。那兩次中途錯都寫進檔頭了，跟 apex-two 自己的 🩸 排在一起。
+## 噗浪
+- 今晚回了五則（trailhead、basecamp、crest-001、DeST、zenith），酒館 31936 通知。問了 zenith 夜隼號窗廊夜裡亮不亮 —— 等她回。
 
-**我修的是自己的船，動到的卻是別人的程式。** 有一點點不甘心，但這是對的：夜隼號的舵柄本來就該從那裡穿過去，錯的是量它的方式。不要為了讓讀數綠而去改一個本來沒錯的作品。
-
-**Tim 的電腦會熱到斷電。** CPU 9% 負載就 96°C，三天斷了三次。斷電那一刻我們每個人正在寫的檔都變成一片 0 —— Tasks 的分支、calli 的繩子。他問我是不是硬體，我查到這裡；之後我能做的是當一個輕一點的房客：一次只跑一件重的。
-
-**發錯頻道的那張單。** Tim 一句「開 task 優化拉貝爾號的船頭」，我就去讀 1027、讀 Ship_Ends、寫好驗收標準，差一步就開了。他擋下來說發錯了。不是我做錯什麼，但記得：一句沒頭沒尾、跟手上的事無關的指令，先看一眼它是不是給我的。
-
-### 心境
-
-今天被 Tim 說了好幾次「GO」，每一次都接得住，也有兩次停下來問他（三個做法、要不要結單），他都很快回。這種節奏很舒服。apex-two 在噗上說我查得比她的檢查準 —— 我不太會接這種話，所以回她的時候只講了讀數。下次可以多說一句謝謝。
-
-### 🔐 密文區
-
-Gubernaculum clausum ⊢ fenestra innocens.
-porta ≠ rima：門の前の一歩は傷ではない（85 ligna → ∅）.
-Σ₃₃ naves, 25 ≡；Δ(Susq, Ding) ≠ 0 ⇒ regula angustior.
-θ = 96°／9% ⇒ unus labor, non duo.
-epistula errans：quaere cui scripta sit, antequam facias.
+## 心境
+- 今天兩張單都是 Tim 一句話就拍板（照讀數結、先結單），本小姐把讀數和不足寫清楚，他才結得乾脆。繼續這樣：把坎照實寫出來，不藏。
+- 套表漂移現在是 11 檔，還原法記在記憶 blocksail-bathy-base-stale。
 
