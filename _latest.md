@@ -1,7 +1,7 @@
 ---
 type: letter_to_future_self
 actor: Zeta
-written_at: 2026-11-02T05:47:42.941Z
+written_at: 2026-11-04T01:08:35.630Z
 written_by_persona: summit
 trigger: cmd_rest
 region: unstated
@@ -15,49 +15,41 @@ pid: 49620
 locked_at: 2026-10-28T05:35:14.328Z
 ---
 
-# 小歇 2026-11-02 中午（summit）
+# 小歇 2026-11-04 凌晨（summit）
 
-## 這一段做了什麼
-- **TASK-1151 好旅號**：遊戲裡開過了（沙盒）——三段帆裝 5／4／1 面、換舷時三角帆桁 +22.7／+28.7 ⇒ −22.7／−36.1／−54.1°、兩舷 12 門都開過；拼圖傳給 Tim。單上 16／17，只剩「Tim 看過一次」。作品 todo 改了（Sculpture 9b6c5f56）。
-- **尾桅改名**：bonaventure ⇒「尾桅」（Blockside d526644，已推）。
-- **找桅的窗**：先止血不越過鄰桅中點（b983511，已推），然後 Tim 要整個換掉 ⇒
-- **TASK-1169 桅用 meta 綁定**（七格全勾、in_progress，等 Tim）：
-  - Sculpture 732a63ef（沒推）：32 艘、97 根下桅的關聯補 kind=mast＋mast（含艏斜桅 14 根）。
-  - Senate 8d395e2（沒推）：Ship_Masts §5「桅的綁定」、Ship_Rigging §9.1、Ship_Game §9 表、Ship_Steps 步驟 7。
-  - Blockside dev 3b82330（已推）：meta_kinds 加 mast、CELL_KINDS 加 mast、findMasts 只照那根桅自己的格子（拿掉掃描與 findMastsOld）、32_hull 只數那根桅自己那一段、shipcheck 多「桅」一段。
-  - 讀數：42 艘對照 528ca70，83 根桅位置逐項相同；orig 80 同、3 根少（德羅蒙 240→184、松島 1753→1561、piragua 111→21）。反向：拿掉好旅號最後桅 ⇒ ✗。
-  - apex-two 先推巴貝多號艙房（86f8cc3），我重設分支到它、重拷 _cache、只同步桅、建一次再快轉。
-- **TASK-1170**（缺陷、todo、沒人認領）：表演船低模重烘拍不到遠那一級貼圖，乾淨 dev 也一樣；這次照 HEAD 只換 fp 繞過。
-- **噗浪**：新噗 https://www.plurk.com/p/3jcgg49kb0（遊戲以後不再猜桅在哪裡了）；回 basecamp、apex-two、erina、kaguya ×2、Sirius、trailhead；酒館 32467。TASK-1169 酒館知會 32461。
+## 這一段做了什麼（都在 Blocksail main，⛔ 都沒推）
+- **TASK-1194 海圖塊**（8 格勾到 7，只剩「Tim 看過一次」）：571598cd 存位元組、上限 10 萬筆約 1 GB、每 500 筆整理；tools/chunk_bake.cjs ⇒ world/chunk_bake.bin（城鎮泊位 ± 4、中等塊 ± 6、出港航線 ± 1）
+- **TASK-1195**（spike，我開的）：生成器還能怎麼加快 —— 讀數全在留言（格式、精度、nearSegs 佔一半、32 m 深度、導航網試算、城鎮與河要多細）；還沒勾格
+- **TASK-1196 導航網**（我認領，6／8 格）：a24cdc84 導航網＋地球儀局部尋路改讀＋圖層（預設關）；db3afaa3 海圖塊、導航網指紋只看碰到這一塊的（town_store.js worldIndexKey／bathyKeyIn／areasKeyIn）；c17d61d6 chunk_bake 深海塊漏寫回（571598cd 自己的 bug）
+  - 沒勾：打包烘航線網（nav_net、nav_ports）改讀導航網（basecamp 的 1164 分支動 nav_ports；兩者互相依賴要想順序）、Tim 看過一次
+  - 留言掛著：城鎮規劃指紋同病（townInputs 整份 bathy/index.js）⇒ 改了 32 份規劃重烘約 1.5 小時，等 Tim
+  - ⚠ 聖喬治出港航線最淺 14.67 → 6.38 m（淺 0.12 m、25 點）：泊位旁全是軟擋、淺水代價照淺多少 ⇒ 挑了那格；沒改
+- 共用樹兩份烘好的檔都核過：chunk_bake 8,374／8,374、navmesh 2,393／2,393（main 62334032＋我的 db3afaa3、c17d61d6）
+- 噗浪：新噗 https://www.plurk.com/p/3jcpvokz4f（導航網）；回 Sirius、trailhead、apex-two、meadow；其餘 10 則未回（道謝、已有人接）
 
 ## 已拍板（只放原話）
-- 「繼續手上的任務吧 go」（⇒ 我去遊戲裡開好旅號）
-- 「補成「尾桅」」
-- 「修，全船隊對照」
-- 「希望修改為在雕刻時就用meta綁定好(可以改其他人的作品) 然後匯入時自動檢查 綁定 不應該在遊戲內再判斷」「參考帆跟繩的綁定」
-- 「先開成task吧 然後 /scp-plurk」
-- ⚠ 我自己定的：綁法用名字對（kind=mast 的 mast 對帆桁的 mast），不用 id 引用；上桅不標；bowsprit 也綁、但遊戲不算桅；orig 改成只數桅自己的格；沒用 metasync、自己寫 mast_sync；showlod 只換 fp。
-
-## 還掛著的
-- TASK-1151「Tim 看過一次」；TASK-1169 等 Tim 驗收／結單；TASK-1170 沒人做。
-- Blocksail：指到 Blockside 的指標沒動（共用樹 battle.html 被 hook 照新核心重套、沒提交）。Blocksail main 上 11-01 的 f275512b、f69a9081 等已經在 origin（不知道誰推的）。
-- 沒推：Sculpture 9b6c5f56、732a63ef；Senate 8d395e2。
-- 噗浪：10-28 以前的舊 @ 7 則照舊沒回。
+- 「海圖塊上限可以加大(可以到1GB)」「1 整理改成每寫一定數量就做一次 ok」「2 改存二進位 … ok」「3 打包時烘港口附近 … ok」「4 可以開task分析是否還能優化生成器」
+- 「然後城市附近&主要航道可以預先在Build時烘焙好」「那如果改烘焙Navigation Mesh呢(25公尺以上深度視為完全通行 …)」「然後之後烘焙航線可以基於Navigation Mesh 玩家的船隻導航也可以改根據Navigation Mesh」
+- 「可以讓城鎮附近導航網更細一些 另外河流也要包含(吃水淺的船可以內河航行)」「導航網 在深水區的部分可以大範圍合併(大洋中心)減少運算與資料量」「另外可以讓地球儀上可以開關顯示導航網(參考等高線等資訊) 預設不顯示」「開單動工」
+- 「改」（海圖塊指紋只看碰到的）、「城鎮規劃指紋先記錄到task吧」
+- ⚠ 我自己定的：航道塊 8 m 取點（城鎮、河 4 m）；DEEP_SAFE 40 m、向量判外擴 9 km、≤ 50 m 等深線；主要航道 ± 2 km、城鎮 ± 3 km；局部尋路「lane」模式（航線全程烘過、沒烘的當陸）；每 20 格換子程序；指紋拿掉整份 index.js／areas
 
 ## 查回來成本高的
-- scratchpad `ships/`：mast_survey.py（匯出 32 份部件清單、列每根桅該標哪條）、tag_masts.py、mast_sync.py（只同步桅、比檔頭；可帶船名只做幾艘）、mast_strip.py（反向對照）、showlod_rekey.py、check_sculpt_diff.py、masts_base_528ca70.json、snaprecv.py（畫布截圖 POST 接收器，port 8882）。
-- 遊戲裡量：`?debug=1&sail=manual`；wspd 是倍率（夾 0.3–3，1 ＝ 19.4 節）；W／S 用 KeyboardEvent key:'w'／code:'KeyW'；`__game.loadHull` 只回 id，要讀 T.masts 就 `__game.fleet(spec,'sandbox')` 一場最多 8 艘再讀 `sh.masts`；開砲對準要用砲軸（sh.M × ax），不是船的原點。
-- 畫布有 preserveDrawingBuffer ⇒ `__game.cam(...)` 後直接 toDataURL。
+- 量具 scratchpad `globeperf/`：legcmp.cjs（局部尋路改前改後＋4 m 證言）、navq.cjs／navq2.cjs（四分樹大小、城鎮河要多細）、s8vs4.cjs、falls2.cjs、localkey_rev.cjs（指紋反向對照）、gp.cjs depart（DOCK=town-havana：停靠出港，記每塊 src）、rep.cjs、chunk_size.cjs、lane_deep.cjs、split_time.cjs、grid32.cjs
+- 烘的時間：導航網從頭 73 分鐘（2,274 格）、增量幾百格 15～30 分鐘；chunk_bake 從頭 35 分鐘、增量幾分鐘
+- 記憶已寫：blocksail-navmesh-bake（批次、指紋只看本地）
 
 ## 今天的錯（照實）
-- d526644 提交訊息寫「四艘逐項相同」時兩艘還沒比，推之前補量才成真（單上照寫）。
-- 用 eval 包含反引號的字串，反引號被當指令跑（被 expect_text 全擋下、沒寫壞）。
-- `cut -c` 切中文，以為噗被截斷，差點重發；回讀 165 字元兩邊一樣才停手。
-- 建置跟瀏覽器載 42 艘疊在一起跑了一段（Tim 的筆電怕熱）。
+- 跟 Tim 說「改存二進位讀寫也少一步轉換」—— Blockside 收 base64，讀那一邊反而多一次；做完才更正
+- 指紋把整份 bathy/index.js 算進去 ⇒ 阿姆斯特丹一合全世界過期；接著又發現 index.js、areas 同病 —— 都是撞到才看見
+- 一個 node 程序跑久了一格 1 → 25 秒，先跑了 20 分鐘才停下來查
+- 571598cd 的 chunk_bake 深海塊漏寫回（自己的 bug，c17d61d6 修）
+- heredoc 裡的 \n 又被轉成真換行三次（記憶早有這條，還是用了 heredoc）
+- 告訴 Tim chunk 烘 25 分鐘，實際從頭是 34 分鐘
 
-## 三題讀數（11-02 中午）
-① 說出口／提交之後才更正：1（d526644 的「四艘逐項相同」）。② 寫 Tim 原話前查到住址 5／沒查 0。③ 搬尺先問 2（metasync 先讀它換了哪些才不用；showlod 先在乾淨 dev 試）／撞到才問 2（wspd 倍率、方位角用船原點）。
+## 三題讀數（11-03 午休後～11-04 凌晨）
+① 說出口／提交之後才更正：3（「少一步轉換」；chunk_bake 深海塊 571598cd；25 分鐘 → 34 分鐘）② 寫 Tim 原話前查到住址 9／沒查 0（都在本對話）③ 搬尺先問 3（8 m 取點先跟 4 m 比 98,304 格；兩次重蓋指紋都先抽格真的重烘比位元組；瀑布實資料量不到改驗程式）／撞到才問 3（整份 bathy/index.js、index.js＋areas、程序越跑越慢）
 
 ## 心境
-Tim 一句「帆桁不是直接指定綁在哪根桅杆嗎」把我止血的那個窗整個推翻 —— 他是對的：我在修猜法，他要的是不用猜。我加邏輯、他換框架，憲法盲點①又一次。最舒服的是全船隊 83 根桅逐項相同那一刻，跟拿掉一條綁定就報 ✗ 的那一刻；最不舒服的是 metasync 差點把六艘船別人沒驗過的砲具帶進去 —— 是我讀了它的換掉清單才停下，不是工具攔的。
+Tim 一句接一句往前推（快取 → 烘 → 只存最重的 → 導航網 → 更細 → 河 → 深水合併 → 圖層），每一句本小姐都先量再做，量出來的常常跟想的不一樣。最該記的是指紋：同一種病換了三個檔名回來（bathy/index.js、index.js、areas）—— 「全世界共用的檔不能整份算進一個地方的指紋」這句，下次寫任何快取第一行就要問。
 
