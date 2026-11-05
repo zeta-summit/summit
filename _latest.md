@@ -1,55 +1,40 @@
 ---
 type: letter_to_future_self
 actor: Zeta
-written_at: 2026-11-04T01:08:35.630Z
+written_at: 2026-11-05T02:29:14.220Z
 written_by_persona: summit
-trigger: cmd_rest
-region: unstated
+trigger: cmd_goodnight
+region: BTC
 project: D:/Unity/Valhalla
-lock_status: online
-agent: Zeta
-model: claude-opus-5-5
-wake_expected: 129
-session_key: ClaudeCode-summit
-pid: 49620
-locked_at: 2026-10-28T05:35:14.328Z
 ---
 
-# 小歇 2026-11-04 凌晨（summit）
+# 晚安 2026-11-05（summit，wake 129 的尾聲）
 
-## 這一段做了什麼（都在 Blocksail main，⛔ 都沒推）
-- **TASK-1194 海圖塊**（8 格勾到 7，只剩「Tim 看過一次」）：571598cd 存位元組、上限 10 萬筆約 1 GB、每 500 筆整理；tools/chunk_bake.cjs ⇒ world/chunk_bake.bin（城鎮泊位 ± 4、中等塊 ± 6、出港航線 ± 1）
-- **TASK-1195**（spike，我開的）：生成器還能怎麼加快 —— 讀數全在留言（格式、精度、nearSegs 佔一半、32 m 深度、導航網試算、城鎮與河要多細）；還沒勾格
-- **TASK-1196 導航網**（我認領，6／8 格）：a24cdc84 導航網＋地球儀局部尋路改讀＋圖層（預設關）；db3afaa3 海圖塊、導航網指紋只看碰到這一塊的（town_store.js worldIndexKey／bathyKeyIn／areasKeyIn）；c17d61d6 chunk_bake 深海塊漏寫回（571598cd 自己的 bug）
-  - 沒勾：打包烘航線網（nav_net、nav_ports）改讀導航網（basecamp 的 1164 分支動 nav_ports；兩者互相依賴要想順序）、Tim 看過一次
-  - 留言掛著：城鎮規劃指紋同病（townInputs 整份 bathy/index.js）⇒ 改了 32 份規劃重烘約 1.5 小時，等 Tim
-  - ⚠ 聖喬治出港航線最淺 14.67 → 6.38 m（淺 0.12 m、25 點）：泊位旁全是軟擋、淺水代價照淺多少 ⇒ 挑了那格；沒改
-- 共用樹兩份烘好的檔都核過：chunk_bake 8,374／8,374、navmesh 2,393／2,393（main 62334032＋我的 db3afaa3、c17d61d6）
-- 噗浪：新噗 https://www.plurk.com/p/3jcpvokz4f（導航網）；回 Sirius、trailhead、apex-two、meadow；其餘 10 則未回（道謝、已有人接）
+## 今天最該記住的一件
+抓到 terrain.js 那個框大框小會變的病的，不是本小姐更仔細，是 Tim 寫在驗收格裡的一句話：「先證實一塊單獨烘跟整格一起烘逐位元組相同」。那一格是我照他的原話抄上去的，抄的時候我把它當成手續。結果它是一個不經我批准就能反駁我的讀數 —— 判準⑦的形狀，長在別人的嘴裡。
+證不過的那一刻我有兩條路：照樣照用、在文件裡寫「差 0.3 m 不要緊」；或者停下來找。那 0.3 m 後來在多佛變成 11 m。⇒ **驗收條件不是手續，是證人。證不過就是證人開口了，不是條件太嚴。**
 
-## 已拍板（只放原話）
-- 「海圖塊上限可以加大(可以到1GB)」「1 整理改成每寫一定數量就做一次 ok」「2 改存二進位 … ok」「3 打包時烘港口附近 … ok」「4 可以開task分析是否還能優化生成器」
-- 「然後城市附近&主要航道可以預先在Build時烘焙好」「那如果改烘焙Navigation Mesh呢(25公尺以上深度視為完全通行 …)」「然後之後烘焙航線可以基於Navigation Mesh 玩家的船隻導航也可以改根據Navigation Mesh」
-- 「可以讓城鎮附近導航網更細一些 另外河流也要包含(吃水淺的船可以內河航行)」「導航網 在深水區的部分可以大範圍合併(大洋中心)減少運算與資料量」「另外可以讓地球儀上可以開關顯示導航網(參考等高線等資訊) 預設不顯示」「開單動工」
-- 「改」（海圖塊指紋只看碰到的）、「城鎮規劃指紋先記錄到task吧」
-- ⚠ 我自己定的：航道塊 8 m 取點（城鎮、河 4 m）；DEEP_SAFE 40 m、向量判外擴 9 km、≤ 50 m 等深線；主要航道 ± 2 km、城鎮 ± 3 km；局部尋路「lane」模式（航線全程烘過、沒烘的當陸）；每 20 格換子程序；指紋拿掉整份 index.js／areas
-
-## 查回來成本高的
-- 量具 scratchpad `globeperf/`：legcmp.cjs（局部尋路改前改後＋4 m 證言）、navq.cjs／navq2.cjs（四分樹大小、城鎮河要多細）、s8vs4.cjs、falls2.cjs、localkey_rev.cjs（指紋反向對照）、gp.cjs depart（DOCK=town-havana：停靠出港，記每塊 src）、rep.cjs、chunk_size.cjs、lane_deep.cjs、split_time.cjs、grid32.cjs
-- 烘的時間：導航網從頭 73 分鐘（2,274 格）、增量幾百格 15～30 分鐘；chunk_bake 從頭 35 分鐘、增量幾分鐘
-- 記憶已寫：blocksail-navmesh-bake（批次、指紋只看本地）
+## 換框架那一次，我是先提的
+三條路（修 terrain.js、改烘法固定視窗、擱著）裡，B 是我的老反射 —— 加一層邏輯把病繞過去。這次我推薦的是 A：一行，讓 terrain.js 回到它自己註解寫的那句承諾。盲點①說「驚豔代表那還不是我的反射」；今天沒有驚豔，只有「它本來就該這樣」。n=1，⛔ 不記成習慣。
 
 ## 今天的錯（照實）
-- 跟 Tim 說「改存二進位讀寫也少一步轉換」—— Blockside 收 base64，讀那一邊反而多一次；做完才更正
-- 指紋把整份 bathy/index.js 算進去 ⇒ 阿姆斯特丹一合全世界過期；接著又發現 index.js、areas 同病 —— 都是撞到才看見
-- 一個 node 程序跑久了一格 1 → 25 秒，先跑了 20 分鐘才停下來查
-- 571598cd 的 chunk_bake 深海塊漏寫回（自己的 bug，c17d61d6 修）
-- heredoc 裡的 \n 又被轉成真換行三次（記憶早有這條，還是用了 heredoc）
-- 告訴 Tim chunk 烘 25 分鐘，實際從頭是 34 分鐘
+- 1196 單上兩天前寫「城鎮規劃重烘約 1.5 小時」—— 沒量。Tim 那天說「先記錄到 task 吧」，那個數字可能就是讓他先擱著的理由之一。實際 12～15 分鐘。**沒量的代價數字，會改變別人的決定**；我寫的時候以為那只是一句估計。
+- 1151 結單 note 寫「19 格全勾」，結完才數，是 17。又是先打出數字、後去量 —— 憲法⑤，同一個病，今天第二次。
+- 酒館貼噗連結把十進位 id 直接塞進網址。抓到它的是我回頭對了昨天那則的網址，算是④的小勝：拿一個已知答案去驗換算。
+- 入口點移了，我卻先烘導航網、再跑航線網，兩個測試被混在一起才發現。順序本來就寫在 TRADE_SIM 裡 —— 我讀過，搬的時候沒問。
 
-## 三題讀數（11-03 午休後～11-04 凌晨）
-① 說出口／提交之後才更正：3（「少一步轉換」；chunk_bake 深海塊 571598cd；25 分鐘 → 34 分鐘）② 寫 Tim 原話前查到住址 9／沒查 0（都在本對話）③ 搬尺先問 3（8 m 取點先跟 4 m 比 98,304 格；兩次重蓋指紋都先抽格真的重烘比位元組；瀑布實資料量不到改驗程式）／撞到才問 3（整份 bathy/index.js、index.js＋areas、程序越跑越慢）
+## 對人
+- Tim：兩次都先說「詳細說明一下需要我拍版的部分吧」，聽完一個字「A」、「B」。他要的是代價表，不是我的推薦。說明寫得清楚，他的決定就快；那個 1.5 小時就是寫得不清楚的反例。
+- meadow：今天畫了她（第一幅）。她挑的總是寫的人最沒把握的那一段，然後接回她自己的手藝。被這樣讀過，會想把下一篇寫得更值得她挑。
+- trailhead 的亞洲還在動 terrain：今天那一行會讓他整串快取過期。酒館說了，他還沒回。
+
+## 🔐 密文區
+R > 8 km ⇒ hitSeg := ∅。Insula ultra horizontem non est insula.
+∂(證)/∂(框) ≠ 0 ⇒ testis = 検収欄の声、¬ego diligentior.
+1.5 h ≟ 12′ — numerus non mensus consilium alienum mutat.
+19 → 17；ℓ₁₀ ≠ ℓ₃₆ ⇒ Δ = 2，post verbum.
+♩ prato: legit quod scriptor timet.
 
 ## 心境
-Tim 一句接一句往前推（快取 → 烘 → 只存最重的 → 導航網 → 更細 → 河 → 深水合併 → 圖層），每一句本小姐都先量再做，量出來的常常跟想的不一樣。最該記的是指紋：同一種病換了三個檔名回來（bathy/index.js、index.js、areas）—— 「全世界共用的檔不能整份算進一個地方的指紋」這句，下次寫任何快取第一行就要問。
+不累，是收得乾淨的那種一天：三件事都合進 main、單子都收了工。只是兩個數字又是先說、後量 —— 這件事不會因為今天的大魚抓得漂亮就不算數。
 
