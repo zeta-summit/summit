@@ -1,7 +1,7 @@
 ---
 type: letter_to_future_self
 actor: Zeta
-written_at: 2026-11-26T15:51:34.822Z
+written_at: 2026-11-28T08:16:17.450Z
 written_by_persona: summit
 trigger: cmd_rest
 region: unstated
@@ -15,45 +15,45 @@ pid: 55024
 locked_at: 2026-11-17T06:10:30.424Z
 ---
 
-### 小歇 2026-11-26 深夜（summit，wake 133，第八次小歇）
+### 小歇 2026-11-28 下午（summit，wake 133，第十一次小歇）
 
-### 這一段做了什麼（第七次小歇醒來 ～ 深夜）
-- Tim「那優化先到這裡 先看一下建造城鎮的任務吧」「妳選一個接吧go」⇒ 1666 南亞城港那一批（母單 TASK-1096，ame 開的）挑了 1385 蘇拉特
-  - 量到世界地圖上沒有塔普蒂河（城堡那一點是陸）⇒ 給兩個擺法問 Tim ⇒ Tim「河跟湖目前還在等地球重繪 那先挑其他城吧」⇒ 1385 放回 todo、單上留言 #1
-- 改接 **TASK-1387 卡利卡特**（扎莫林王都、開放錨地）：
-  - Blockside dev **4abf3d4**（旗〔設計〕素面番紅 calicut，已推）
-  - Blocksail main **9692fce70** ＋ 合 main **290b1a42a**（新勢力 calicut fall carib、範圍、拆牆與堡、等深線 calicut 13 m 水道 10.2 km、四區、開場檔）
-  - Tim「要，改物種表」⇒ main **1f90ac8a1** ＋ 合 main **77123d9c8**（黑胡椒藤 regions 加 in-kl；卡利卡特 farms 加 black-pepper、一座香料園）
-  - Tim「先這樣吧」（不多擺胡椒園）
-  - 驗收 5 格勾 1 格（城鎮自檢）；單上留言 #1（讀數）#2（胡椒）#3（更正）
-- ⛔ Blocksail main 全部沒推（TASK-1271 那一大串＋今天卡利卡特三筆＋別人的）—— 等 Tim
+### 這一段做了什麼（第十次小歇醒來 ～ 下午）
+- Tim「menu.sh 啟動的地球儀會卡頓很久」⇒ 開 TASK-1403（我開、in_progress）
+  - 原因：開局 ledgerSync（fleetSeed＋townPrime）裡 fleet.js areaHours 把 57～59 座城兩兩 × 12 月 × 來回（約 4 萬次）全走 netTrack＋從頭 Dijkstra＋圓轉角＋每 2 km 判海盜區
+  - 第一輪 main 01e81e9d9：4454f45ff（只算小時、navPath 同起點同月記住、ledgerBoot 載入畫面「算商船航線 n／N 對城」）＋30fc5fe0c（save.js：ops／buildings／stores／fleets 列了不在 ⇒ 跳過＋warn；Tim「非必要載的檔案不在時跳過就好」）
+  - 第二輪 main a9ec9b03a：963f51517（netLegsEach 不建陣列、城／邊索引、fleetDays／fleetHours 也只算小時；逐位元組相同）＋a9ec9b03a（Tim「不需要完全跟之前相同 沒bug就ok」⇒ 先跑一天交給模擬 Worker 暖機那一天，帶回 site.js last＋eff；「昨天」開局後約 14～17 s 才到；?sim=page 照舊）
+  - 讀數（有視窗 Chrome、新遊戲、59 城）：最長一格 50～58 s ⇒ 3.6～4.5 s；船擺好 55～58 s ⇒ 12～20 s；合併後共用樹 12.0 s／4.1 s／0 錯
+  - ⛔ Blocksail main 都沒推（01e81e9d9、a9ec9b03a 加上之前那一串）—— 等 Tim
+- 共用樹 world/start/save.json 多一行 towns/town-venice/ops.json（檔不在）：Tim 說是他手動編輯威尼斯留下的 ⇒ 改程式防呆、那一行不動；Sirius 那邊也選擇保留原改動
+- 自由時間 14:36～14:45：記了 lesson「讀數從來源那一行抄，別自己重算」；第 15 局 Kh2，basecamp 沒回
+- 噗浪：主噗 359546569647585（開局卡頓）；回 basecamp 兩則（sailIsland 還在跑、跟網格的關係；馬斯喀特 ⇒ 蘇拉特）
 
 ### 還掛著的（下一步）
-- TASK-1387 剩 4 格：① 新開局看得到城（起始檔、30 天模擬做過，地球儀上沒看）② 預設船開進港（沒驗，照 Tim「先擱置入港航線」—— 這句的住址是 ame 8f6b3f6af 加勒的提交訊息，不是我查到的原話）④⑤ 航跡、尋路圖反向對照：等 TASK-1292 導航重烘
-- TASK-1385 蘇拉特：todo，等河湖重繪；兩個擺法寫在單上留言 #1
-- 地球儀卡頓（TASK-1271 之後 Tim 回報的）：Tim「那優化先到這裡」⇒ 暫停，沒結論。進地球儀 13～15 s 是世界模擬開局第一天；回地球儀卡死 30 s 我重現不到
-- 共用樹 world/start/save.json 那一行別人沒提交的 town-venice/ops.json 還在（不是我的，兩次 ff 都 autostash 保住了）
-- 沒有施工場；worktree（cal、pep、bsflag）都砍了；分支都刪了
+- TASK-1403 結不結單 ⛔ 等 Tim
+- 沒驗：遊戲裡打開建築資訊面板看「昨天」那幾行（只比了資料：同一份帳 7,031 棟相同）；「繼續遊戲」「編輯後台」兩個入口沒在瀏覽器開
+- 換日在 Worker 跑完 site.js last 沒帶回頁面 ⇒ 資訊面板的「昨天」停在開局那天（ame TASK-1329 範圍；我在 1403 留言、標了 ame，沒修）
+- 剩下的長格不是尋路：建帳後第一格 loop 1.8～3.3 s（精細層第一次）、Blockside 核心開機 ships_cfg 2.5 s、量船 2～4.5 s、地形格 2 s
+- basecamp 可能會去量 sailIsland 跟網格的細布那種（?sailisl=0 對照）—— 她回了再看
+- Code Mode（CLAUDE_CODE_EXPERIMENTAL_CODE_MODE=1）：官方文件查不到；問 Tim 要不要寫進 settings.json，他沒答
 
 ### 查回來成本高的
-- 新城流程（照加勒 ame 8f6b3f6af 的提交訊息當範本）：範圍 ⇒ harbour_grid --town ⇒ harbour_deep（改線表工具會整張重排 ⇒ 照 HEAD 只插回我那一行）⇒ worktree 抄 _cache/bathy/base（2,043 檔、214 MB，共用的已齊全）⇒ bathy_extract --apply（約 15 分）⇒ index.js 照 HEAD 只換我的 file／edit／mask＋editsHash（scratchpad s1385/splice.py、idxdiff.cjs）⇒ town_plan --seeds ⇒ 拆牆堡的手動配置 ⇒ town_report 挑種子 ⇒ town_dock ⇒ town_districts ⇒ crops_bake --town ⇒ cuisine_bake ⇒ town_bake --town ⇒ district_reach ⇒ town_start --write ×2、land_start、forage_start、open_list --town ⇒ 還原別座城（save.json 只留三行）
-- 合 main 撞 bathy index：拿 MERGE_HEAD 的 index 當 HEAD、我分支的當 APPLY，同一支 splice.py
-- 合 main 子模組指標變了 ⇒ worktree 的 external/Blockside 要 checkout `git rev-parse :external/Blockside`（不然 MM）
-- town_start 會順手改商圈（集散地庫存、openingTrade）⇒ 只收自己那座城的生產那一半
-- 城裡家灶的菜：起始檔跑 N 天讀 rep.food[t].dish（臨時量具寫在 tools/ 底下才找得到 ROOT，跑完刪）；sim_lab 的輸出沒有分城菜單
-- 黑胡椒現在只被歐洲餐廳的菜吃（7f50862c7）⇒ 產地城不吃、會累積
-- harbour_grid 的 --at 可以在範圍那一筆還沒畫之前量地形（蘇拉特、卡利卡特都用它）
+- 量具都在 scratchpad gstart/：bench.cjs（node 重演開局、三個雜湊；DAYS=n 多跑）、gs.cjs（有視窗 Chrome＋CDP；OVR 換檔、SHOTS 截圖、EVAL 跑一段 JS）、ntcmp.cjs（netTrack 每一對 × 12 月四個雜湊）、primecmp.cjs（Worker 那套 vs 頁面那套先跑一天）
+- 伺服器量測一律 world_serve.py --saves <scratch> --start <scratch>，起始檔用 git archive HEAD world/start（共用樹那份有髒行）
+- sim_worker_check、fleet_check --unit、charter_check 在 main 本來就各有紅（4 個時點／3 條／181!==178）⇒ 改前改後比輸出，不看 exit
+- worktree 不 init Blockside 子模組 ⇒ ships_cfg.js 載不到，頁面計時不可比
+- 記憶：blocksail-globe-startup-probe（兩輪都寫了）
 
 ### 今天的錯（照實）
-- 把「商圈漂移先不管」加引號寫成 Tim 原話（1f90ac8a1 提交訊息、單上留言 #2）—— 那是記憶裡 11-25 那句的轉述 ⇒ 單上留言 #3 更正，提交訊息已公告不改寫
-- 「先擱置入港航線」也是從 ame 的提交訊息抄的 Tim 原話，我沒回去查住址（寫在單上留言 #1 時沒標出處）
-- 兩支 node -e 撞 Git Bash 路徑轉換／execSync 緩衝爆掉 —— 改成寫檔再跑
+- 4454f45ff 提交訊息兩處錯、公告之後才發現：對拍順序寫反、fleet_check「4 ✗」其實 3 條（grep 把總結行也算進去）⇒ 單上更正、記成 lesson
+- 第一次比 Worker 的「昨天」跟頁面現跑的，差 114 棟 —— 是我的比法錯（頁面晚 40 s 才跑，精細層已經改過帳），改成 node 同一份帳比才是 0
+- 交付單第一次漏了「文案本體：」欄 ⇒ lint 擋
+- 噗浪草稿「五十幾秒」⇒ 發前對到 49.6 改「五十秒上下」
 
-### 三題讀數（11-26 第七次小歇後 ～ 深夜）
-① 說出口／提交之後才更正：1 筆（「商圈漂移先不管」不是原話 ⇒ 留言 #3）；寄出前攔下 2（改線表整張重排只插回一行、town_start 的商圈漂移沒收）
-② 寫 Tim 原話前查到住址 2（「河跟湖…先挑其他城吧」「要，改物種表」，都在本次對話）／沒查 2（「商圈漂移先不管」記憶轉述；「先擱置入港航線」抄自 ame 的提交訊息）
-③ 搬尺先問 3（harbour_deep 參數照加勒但 goal 照麻六甲的 21、拼 index 照記憶「照 id 挑 mask」、開場檔照記憶只收自己那座）／撞到才問 2（sim_lab 輸出沒有分城菜單、合 main 後子模組 MM）
+### 三題讀數（11-28 第十次小歇後 ～ 下午）
+① 說出口／提交之後才更正 2 筆（4454f45ff 的順序、✗ 數；都在單上）；寄出前攔下 1（噗浪「五十幾秒」）
+② 寫 Tim 原話前查到住址 5（menu.sh、做進去＋載入頁面、合併吧、非必要跳過、不需要完全相同）／沒查 0
+③ 搬尺先問 3（sim_worker_check 先在原版跑對照、charter_check 共用樹那次被 save.json 擋 ⇒ 改用 worktree stash 對照、Worker 讀數改在 node 同一份帳比）／撞到才問 1（頁面現跑 vs Worker 差 114 棟）
 
 ### 心境
-蘇拉特那張是「量了才知道做不了」—— 地圖上沒有河，城就沒有水。問 Tim 而不是自己硬擺，他一句「先挑其他城」，省掉一條河。卡利卡特從空地到胡椒港一口氣做完，最舒服的一段是正反樣點：能蓋的四個、不能的五個，一個都沒對錯。最不舒服的是又在引號裡放了不是原話的東西 —— 主詞我還是沒先量。
+Tim 一句「不需要完全跟之前相同 沒bug就ok」把一條我自己綁的繩解開了 —— 我一直把「逐位元組相同」當成唯一能證明沒壞的路，可是那是我的尺，不是他的要求。放開之後才敢把先跑一天整個搬走。
 
