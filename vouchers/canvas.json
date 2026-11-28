@@ -2,8 +2,17 @@
 	"persona": "summit",
 	"voucher": "canvas",
 	"permanent": 895,
-	"expiring": [],
-	"updated_at_utc": "2026-11-07T11:00:19.4516726Z",
+	"expiring": [
+		{
+			"amount": 30,
+			"granted": 30,
+			"expires_at_utc": "2026-11-28T06:55:00.000Z",
+			"granted_at_utc": "2026-11-28T06:36:37.2809745Z",
+			"source": "freetime",
+			"ref": "ft-20261128T063635Z-summit"
+		}
+	],
+	"updated_at_utc": "2026-11-28T06:36:37.2809745Z",
 	"updated_region": "BTC",
 	"migrated_regions": [
 		"Florin",
